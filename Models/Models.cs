@@ -55,7 +55,6 @@ namespace Plant.Models
       if (Health >= 7 && WaterLevel >= 7 && Feed >= 7)
       {
         Height += 1;
-
       }
 
       if (Health < 5 || WaterLevel < 5 || Feed < 5)
@@ -74,20 +73,32 @@ namespace Plant.Models
         case 2:
           WindStorm();
           break;
-
+        case 3:
+          AphidAttack();
+          break;
+        default:
+          break;
       }
 
+      Feed -= 1;
+      WaterLevel -= 1;
+
+      Console.WriteLine($"Current Water Level: {WaterLevel} Current Food Level: {Feed} Current Health: {Health} Current Height: {Height}");
     }
 
     public void SlugBite()
     {
-
+      Health -= 1;
     }
 
     public void WindStorm()
     {
-
+      Health -= 2;
     }
 
-
+    public void AphidAttack()
+    {
+      Health -= 3;
+    }
   }
+}
