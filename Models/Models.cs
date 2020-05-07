@@ -7,9 +7,7 @@ namespace Plant.Models
 
     public int Height { get; set; }
     public int WaterLevel { get; set; }
-
     public int Food { get; set; }
-
     public int Health { get; set; }
     public PlantClass(int height, int waterLevel, int food, int health)
     {
@@ -17,9 +15,7 @@ namespace Plant.Models
       WaterLevel = waterLevel;
       Food = food;
       Health = health;
-
     }
-
     public void Water()
     {
       WaterLevel += 5;
@@ -52,12 +48,12 @@ namespace Plant.Models
 
     public void NextRound()
     {
-      if (Health >= 7 && WaterLevel >= 7 && Feed >= 7)
+      if (Health >= 7 && WaterLevel >= 7 && Food >= 7)
       {
         Height += 1;
       }
 
-      if (Health < 5 || WaterLevel < 5 || Feed < 5)
+      if (Health < 5 || WaterLevel < 5 || Food < 5)
       {
         Height -= 1;
       }
@@ -80,10 +76,18 @@ namespace Plant.Models
           break;
       }
 
-      Feed -= 1;
+      Food -= 1;
       WaterLevel -= 1;
 
-      Console.WriteLine($"Current Water Level: {WaterLevel} Current Food Level: {Feed} Current Health: {Health} Current Height: {Height}");
+      if (Height >= 10)
+      {
+        Console.WriteLine("You Win!");
+        Environment.Exit(0);
+      }
+      else
+      {
+        Console.WriteLine($"Current Water Level: {WaterLevel} Current Food Level: {Food} Current Health: {Health} Current Height: {Height}");
+      }
     }
 
     public void SlugBite()
