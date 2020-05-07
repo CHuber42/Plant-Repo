@@ -12,7 +12,7 @@ namespace Plant
       Console.WriteLine("Hi, you have a plant named PlantyBoi.");
       while (userInput != "f" || userInput != "w" || userInput != "m" || userInput != "e")
       {
-        Console.WriteLine("Would you like to [f]eed him, [w]ater him, or [m]ove him into the sun?");
+        Console.WriteLine("Would you like to [f]eed him, [w]ater him, or [m]ove him into the sun? or [e]xit?");
         userInput = Console.ReadLine();
       }
       // char resp = response[0];
@@ -22,14 +22,19 @@ namespace Plant
         case "f":
           plantyBoi.Feed();
           break;
-        case:
-          "w"
+        case "w":
+          plantyBoi.Water();
+          break;
+        case "m":
+          plantyBoi.MoveIntoSunlight();
+          break;
+        case "e":
+          Console.WriteLine("Goodbye");
+          Exit();
+        default:
+          break;
       }
-
-
-
-
-
+      Main();
     }
   }
 }
